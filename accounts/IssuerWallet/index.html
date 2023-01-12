@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Public Key</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles.css">
+    <script 
+        type="text/javascript" 
+        src="https://unpkg.com/bsv@1.5.3/bsv.min.js">
+    </script>
+    
+  </head>
+  <body>
+      <form>
+        <div id="block1">
+          Enter your private key:<br> <input type="text" name="name" id="privKey">
+         
+     </div>
+
+      </form>
+   
+       <div id="block2">
+           <h1>Your Address is:</h1> 
+           <p id="addressText"> </p>
+      </div>
+   
+    <script> 
+      
+const wifFilename = 'wif.txt'
+        const wocNetwork = 'test'    // The network for the whatsonchain URL - 'main' or 'test'
+           
+    
+
+const bsvNetwork = 'testnet' // The network for BSV library - 'livenet' or 'testnet'
+const privateKey = KzELTBPjJSMa1cRHgJGKaBzdV7XtkJTAspeF35GtAj2MzL9677QJ
+const publicKeyHash = bsv.crypto.Hash.sha256ripemd160(privateKey.publicKey.toBuffer()).toString('hex')
+
+const address = privateKey.toAddress(bsvNetwork).toString()
+ 
+
+    
+    var y = document.querySelector("#addressText");
+    y.innerHTML = address;
+     </script>
+  </body>
+</html>
